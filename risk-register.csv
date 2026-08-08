@@ -1,0 +1,21 @@
+Risk Name,Description,Likelihood (1-5),Impact (1-5),Risk Score (LxI),Mitigation Strategy,Residual Risk,Cloud Control Mapping
+
+Overly permissive IAM roles,Users or services have more permissions than needed,,,,"Use predefined roles; enforce least privilege; review monthly",,IAM
+Service accounts with admin privileges,Service accounts granted admin-level roles,,,,"Remove admin roles; use workload identity federation",,IAM
+No MFA on admin accounts,Privileged accounts lack multi-factor authentication,,,,"Enforce MFA for all privileged users",,IAM
+IAM roles not reviewed regularly,Permissions accumulate over time without review,,,,"Implement quarterly IAM review",,IAM
+
+Publicly exposed VPC subnet,Subnet accessible from the internet,,,,"Use private subnets; restrict external IPs",,VPC
+Firewall rules allow 0.0.0.0/0,Open firewall rules allow global access,,,,"Restrict to specific IP ranges; use Cloud Armor",,VPC
+Unrestricted API access,APIs accessible without proper boundaries,,,,"Use VPC-SC; restrict API endpoints",,VPC
+No private service access,Services communicate over public internet instead of private channels,,,,"Enable Private Service Connect",,VPC
+
+Publicly accessible storage buckets,Buckets allow public read/write access,,,,"Disable public access; use uniform bucket-level access",,Storage
+No encryption at rest,Data stored without encryption,,,,"Enable CMEK or Google-managed encryption",,Storage
+No versioning or backup strategy,Data loss possible due to missing versioning,,,,"Enable object versioning; set lifecycle rules",,Storage
+
+Cloud Audit Logs disabled,Critical logs not captured,,,,"Enable Admin, Data Access, and System logs",,Logging
+No alerting on critical events,Security events go unnoticed,,,,"Create alert policies in Cloud Monitoring",,Logging
+Logs not routed to SIEM,Logs not centralized for detection,,,,"Export logs to BigQuery or SIEM pipeline",,Logging
+
+Compute Engine default service accounts,Instances run with overly permissive default accounts,,,,"Use custom service accounts with least privilege",,Compute
