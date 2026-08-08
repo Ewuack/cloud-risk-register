@@ -19,3 +19,39 @@ No alerting on critical events,Security events go unnoticed,,,,"Create alert pol
 Logs not routed to SIEM,Logs not centralized for detection,,,,"Export logs to BigQuery or SIEM pipeline",,Logging
 
 Compute Engine default service accounts,Instances run with overly permissive default accounts,,,,"Use custom service accounts with least privilege",,Compute
+
+Low — mitigations reduce most of the risk
+Medium — mitigations reduce some risk, but not all
+High — mitigations reduce little risk; needs monitoring
+
+Medium
+Medium
+Low
+Medium
+Medium
+High
+Medium
+Medium
+Low
+Low
+Medium
+Medium
+Medium
+Medium
+Medium
+
+IAM
+IAM
+IAM
+IAM
+VPC
+VPC
+VPC
+VPC
+Storage
+Storage
+Storage
+Logging
+Logging
+Logging
+Compute
